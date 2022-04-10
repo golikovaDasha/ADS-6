@@ -12,13 +12,11 @@ class TPQueue {
  public:
 TPQueue() : first(0), last(0) {}
 void push(T temp) {
-  int i = last;
-  last += 1;
-  while ((i >= first) && arr[i % size].prior < temp.prior) {
-    arr[(i + 1) % size] = arr[i % size];
-    i -= 1;
-  }
-arr[(i + 1) % size] = temp;
+int i = last++;
+while ((--i >= first) && (arr[i % size].prior < temp.prior)) {
+  arr[(i + 1) % size] = arr[i % size];
+}
+  arr[(i + 1) % size] = temp;
 }
 T pop() {
   return arr[(first++) % size];

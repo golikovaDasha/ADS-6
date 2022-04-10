@@ -12,7 +12,7 @@ class TPQueue {
  public:
 void push(T temp) {
 if ((first - last) >= 0) {
-  throw std::string ( "Full" );
+  throw std::string("Full");
 } else {
   int i = last;
   while ((i >= first) && arr[i % size].prior < temp.prior) {

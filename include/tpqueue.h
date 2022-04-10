@@ -5,11 +5,11 @@
 
 template<typename T, int size>
 class TPQueue {
-private: 
+ private:
   T arr[size] = { 0 };
   int first, last;
 
-public: 
+ public:
 void push(T temp) {
 if ((first - last) >= 0) {
   throw std::string ("Full");
@@ -21,7 +21,7 @@ if ((first - last) >= 0) {
   }
 arr[(i + 1) % size] = temp;
 last += 1;
-}	
+  }
 }
 T pop() {
   return arr[(first++) % size];

@@ -6,7 +6,7 @@
 template<typename T, int size>
 class TPQueue {
 private: 
-  T arr[size];
+  T arr[size] = { 0 };
   int first, last;
 
 public: 
@@ -15,7 +15,7 @@ if ((first - last) >= 0) {
   throw std::string ("Full");
 } else {
   int i = last;
-  while (i <= last && arr[i % size].prior > temp.prior) {
+  while ((i >= first) && arr[i % size].prior > temp.prior) {
     arr[(i + 1) % size] = arr[i % size];
     i -= 1;
   }
